@@ -1,0 +1,24 @@
+
+[1mFrom:[0m /home/ec2-user/environment/bookers2_application/app/controllers/searches_controller.rb:18 SearchesController#search_for:
+
+    [1;34m16[0m: [32mdef[0m [1;34msearch_for[0m(model, keyword, method)
+    [1;34m17[0m:   binding.pry
+ => [1;34m18[0m:   [32mif[0m model == [1;34m1[0m
+    [1;34m19[0m:     binding.pry
+    [1;34m20[0m:     [32mif[0m mathod == [1;34m1[0m
+    [1;34m21[0m:       [1;34;4mUser[0m.where([35mname[0m: keyword)
+    [1;34m22[0m:     [32melse[0m
+    [1;34m23[0m:       [1;34;4mUser[0m.where([31m[1;31m"[0m[31mname LIKE ?[1;31m"[0m[31m[0m, [31m[1;31m'[0m[31m%[1;31m'[0m[31m[0m+keyword+[31m[1;31m'[0m[31m%[1;31m'[0m[31m[0m )
+    [1;34m24[0m:       binding.pry
+    [1;34m25[0m:     [32mend[0m
+    [1;34m26[0m:   [32melsif[0m model == [1;34m2[0m
+    [1;34m27[0m:     [32mif[0m mathod == [1;34m1[0m
+    [1;34m28[0m:       [1;34;4mBook[0m.where([35mtitle[0m: keyword)
+    [1;34m29[0m:       binding.pry
+    [1;34m30[0m:     [32melse[0m
+    [1;34m31[0m:       [1;34;4mBook[0m.where([31m[1;31m"[0m[31mtitle LIKE ?[1;31m"[0m[31m[0m, [31m[1;31m'[0m[31m%[1;31m'[0m[31m[0m+keyword+[31m[1;31m'[0m[31m%[1;31m'[0m[31m[0m )
+    [1;34m32[0m:       binding.pry
+    [1;34m33[0m:     [32mend[0m
+    [1;34m34[0m:   [32mend[0m
+    [1;34m35[0m: [32mend[0m
+
