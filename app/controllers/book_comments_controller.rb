@@ -3,13 +3,13 @@ class BookCommentsController < ApplicationController
 
   def create
     @book = Book.find(params[:book_id])
-    book_comment = @book.book_comments.new(book_comment_params)
-    book_comment.user_id = current_user.id
-    book_comment.book_id = @book.id
-    if book_comment.save
+    @book_comment = @book.book_comments.new(book_comment_params)
+    @book_comment.user_id = current_user.id
+    @book_comment.book_id = @book.id
+    if @book_comment.save
       render :index
     else
-      render 'books/show'
+      render :error
     end
 
   end
