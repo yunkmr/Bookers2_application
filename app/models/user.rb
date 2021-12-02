@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :books
   has_many :favorites
   has_many :book_comments
+  has_many :group_users
+
   attachment :profile_image, destroy: false
 
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
