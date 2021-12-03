@@ -32,4 +32,4 @@
 .DS_Store
 app/views/groups/new_mail.html.erb
 
-app/config/environments/development.rb
+/config/environments/development.rb
