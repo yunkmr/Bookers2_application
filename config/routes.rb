@@ -13,7 +13,11 @@ Rails.application.routes.draw do
     resources :book_comments, only: [:create, :destroy]
   end
 
-  resources :groups
+  resources :groups do
+    get "join" => "groups#join"
+    get "leave" => "groups#leave"
+  end
+
 
   root 'homes#top'
   get 'home/about' => 'homes#about'

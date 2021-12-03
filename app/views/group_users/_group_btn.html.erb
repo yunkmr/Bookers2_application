@@ -1,0 +1,5 @@
+<% if group.users.include?(current_user) %>
+  <%= link_to 'Leave this group', group_leave_path(group.id), class: 'btn btn-danger' %>
+<% else %>
+  <%= link_to 'join this group', group_join_path(group), class: 'btn btn-success' %>
+<% end %>

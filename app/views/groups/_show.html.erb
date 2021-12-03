@@ -4,6 +4,7 @@
       <th></th>
       <th>グループ名</th>
       <th>紹介文</th>
+      <th>メンバー</th>
       <th></th>
     </tr>
   </thead>
@@ -13,8 +14,15 @@
       <td><%= group.name %></td>
       <td><%= group.introduction %></td>
       <td>
+        <% group.users.each do |user| %>
+          <%= user.name %><br>
+        <% end %>
+      </td>
+      <td>
         <% if group.owner_id == current_user.id %>
           <%= link_to 'edit', edit_group_path(group), class: 'btn btn-success' %>
+        <% else %>
+          <%= render 'group_users/group_btn', group: group %>
         <% end %>
       </td>
     </tr>

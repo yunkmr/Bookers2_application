@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :books
   has_many :favorites
   has_many :book_comments
+  has_many :groups, through: :group_users
   has_many :group_users
 
   attachment :profile_image, destroy: false
