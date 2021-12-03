@@ -30,3 +30,6 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 .DS_Store
+app/views/groups/new_mail.html.erb
+
+app/config/environments/development.rb

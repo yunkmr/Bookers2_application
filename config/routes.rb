@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :groups do
     get "join" => "groups#join"
     get "leave" => "groups#leave"
+    get "new/mail" => "groups#new_mail"
+    get "send/mail" => "groups#send_mail"
   end
 
 

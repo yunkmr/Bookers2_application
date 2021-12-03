@@ -5,7 +5,7 @@
       <th>グループ名</th>
       <th>紹介文</th>
       <th>メンバー</th>
-      <th></th>
+      <th colspan=2></th>
     </tr>
   </thead>
   <tbody>
@@ -18,13 +18,12 @@
           <%= user.name %><br>
         <% end %>
       </td>
-      <td>
-        <% if group.owner_id == current_user.id %>
-          <%= link_to 'edit', edit_group_path(group), class: 'btn btn-success' %>
-        <% else %>
-          <%= render 'group_users/group_btn', group: group %>
-        <% end %>
-      </td>
+      <% if group.owner_id == current_user.id %>
+        <td><%= link_to 'edit', edit_group_path(group), class: 'btn btn-success' %></td>
+        <td><%= link_to 'Notice an Event', group_new_mail_path(group), class: 'btn btn-info' %></td>
+      <% else %>
+        <td><%= render 'group_users/group_btn', group: group %></td>
+      <% end %>
     </tr>
   </tbody>
 </table>
