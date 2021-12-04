@@ -20,5 +20,6 @@
         <%= f.submit class: 'btn btn-secondary' %>
       </div>
     <% end %>
+    <%= link_to 'アカウントを削除', user_path(@user), method: :delete, data: { confirm: '本当に消しますか？' } %>
   </div>
 </div>

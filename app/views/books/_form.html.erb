@@ -8,6 +8,10 @@
     <%= f.text_area :body, class: 'form-control book_body' %>
   </div>
   <div class="form-group">
+    <%= f.label :created_at %>
+    <%= f.datetime_select :created_at, class: 'form-control book_created_at' %>
+  </div>
+  <div class="form-group">
     <%= f.submit class: 'btn btn-success' %>
   </div>
 <% end %>
