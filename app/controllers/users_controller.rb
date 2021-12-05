@@ -46,6 +46,16 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def search
+    @user = User.find(params[:user_id])
+    create_at = params[:date]
+    if create_at == ""
+      @count_book = 0
+    else
+      @count_book = @user.books.where(['created_at LIKE ? ', "#{create_at}%"]).count
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)

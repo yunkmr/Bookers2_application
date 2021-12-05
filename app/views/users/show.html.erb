@@ -26,8 +26,7 @@
                     label: '投稿した本の数',
                     data: <%= @books.book_count %>,
                     borderColor: "rgba(0,0,255,1)",
-                    backgroundColor: "rgba(0,0,0,0)",
-                    lineTension: 0.5,
+                    backgroundColor: "rgba(0,0,0,0)"
                   }
                 ],
               },
@@ -40,6 +39,17 @@
             });
           });
         </script>
+        <div class="form-group mt-3">
+          <%= form_with url: user_search_path(@user), method: :get do |f| %>
+            <%= f.date_field :date %>
+            <%= f.submit '検索' %>
+          <% end %>
+        </div>
+        <div id="count_book_table">
+          <% if @count_book.present? %>
+            <%= render 'count_book', count_book: @count_book %>
+          <% end %>
+        </div>
     </div>
   </div>
 </div>
