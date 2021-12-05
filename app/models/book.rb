@@ -15,4 +15,10 @@ class Book < ApplicationRecord
 	scope :created_thisweek, -> { where(:created_at=> 6.day.ago..Time.now) }
 	scope :created_lastweek, -> { where(:created_at=> 13.day.ago..7.day.ago) }
 
+	scope :created_days_ago, ->(n) { where(created_at: n.days.ago.all_day) }
+
+	def self.book_count
+	 (0..6).map { |n| created_days_ago(n).count }.reverse
+	end
+
 end

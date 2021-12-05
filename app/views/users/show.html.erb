@@ -10,7 +10,36 @@
       <h2>Books</h2>
       <%= render 'books/index',books: @books %>
       <h2>投稿数の前日比・前週比</h2>
-      <%= render 'count' %>
+      <%= render 'count1'%>
+      <h2>7日間分の投稿数</h2>
+      <%= render 'count2', books: @books %>
+      <canvas id="myLineChart"></canvas>
+        <script>
+            $(document).on('turbolinks:load', function() {
+            var ctx = document.getElementById("myLineChart");
+            var myLineChart = new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: ['6日前', '5日前', '4日前', '3日前', '2日前', '1日前', '今日'],
+                datasets: [
+                  {
+                    label: '投稿した本の数',
+                    data: <%= @books.book_count %>,
+                    borderColor: "rgba(0,0,255,1)",
+                    backgroundColor: "rgba(0,0,0,0)",
+                    lineTension: 0.5,
+                  }
+                ],
+              },
+              options: {
+                title: {
+                  display: true,
+                  text: '7日間の投稿数の比較'
+                }
+              },
+            });
+          });
+        </script>
     </div>
   </div>
 </div>

@@ -1,0 +1,20 @@
+<table class="table table_width table-bordered">
+  <thead>
+    <tr>
+      <th>６日前</th>
+      <th>５日前</th>
+      <th>４日前</th>
+      <th>３日前</th>
+      <th>２日前</th>
+      <th>昨日</th>
+      <th>今日</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+       <% books.book_count.each do |book| %>
+        <th><%= book %></th>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

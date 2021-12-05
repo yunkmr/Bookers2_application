@@ -11,7 +11,6 @@ class UsersController < ApplicationController
     @lastweek_book = @books.created_lastweek
     @ratio_today = ratio(@today_book.count, @yesterday_book.count)
     @ratio_week = ratio(@tthisweek_book.count, @lastweek_book.count)
-
     @book = Book.new
   end
 
