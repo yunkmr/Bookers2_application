@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :book_comments
   has_many :groups, through: :group_users
   has_many :group_users
+  has_many :user_rooms, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   attachment :profile_image, destroy: false
 

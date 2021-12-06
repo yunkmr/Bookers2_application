@@ -1,0 +1,6 @@
+/*.messageを部分更新。appendメソッドで要素を追加 */
+$('.message').append("<p style='text-align: left;'><%= @message.message %></p>");
+
+$(".book_comment_<%= @book.id %>").html("コメント数: <%= @book.book_comments.count %>");
+$("#comments_area").html("<%= j(render 'index', { book: @book }) %>")
+$("textfield").val('')

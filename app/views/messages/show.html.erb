@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class='col-md-4'>
+      <h2><%= @user.name %>さんとのチャット</h2>
+      <% @messages.each do |message| %>
+        <% if message.user_id == current_user.id %>
+          <p style="text-align: left;"><%= message.message %></p>
+        <% else %>
+          <p style="text-align: right;"><%= message.message %></p>
+        <% end %>
+      <% end %>
+      <%= form_with model: @message, url: messages_path, get: :post, local:true do |f| %>
+        <%= f.text_field :message %>
+        <%= f.hidden_field :room_id %>
+        <% f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>

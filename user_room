@@ -1,0 +1,23 @@
+
+[1mFrom:[0m /home/ec2-user/environment/bookers2_application/app/controllers/messages_controller.rb:10 MessagesController#show:
+
+     [1;34m3[0m: [32mdef[0m [1;34mshow[0m
+     [1;34m4[0m:   @user = [1;34;4mUser[0m.find(params[[33m:id[0m])
+     [1;34m5[0m:   rooms = current_user.user_rooms.pluck([33m:room_id[0m)
+     [1;34m6[0m:   user_room = [1;34;4mUserRoom[0m.find_by([35muser_id[0m: @user.id, [35mroom_id[0m: rooms)
+     [1;34m7[0m: 
+     [1;34m8[0m:   binding.pry
+     [1;34m9[0m: 
+ => [1;34m10[0m:   [32mif[0m user_room.nil?
+    [1;34m11[0m:     room = [1;34;4mRoom[0m.new
+    [1;34m12[0m:     room.save
+    [1;34m13[0m:     [1;34;4mUserRoom[0m.create([35muser_id[0m: current_user.id, [35mroom_id[0m: room.id)
+    [1;34m14[0m:     [1;34;4mUserRoom[0m.create([35muser_id[0m: @user.id, [35mroom_id[0m: room.id)
+    [1;34m15[0m:   [32melse[0m
+    [1;34m16[0m:     room = user_room.room
+    [1;34m17[0m:   [32mend[0m
+    [1;34m18[0m: 
+    [1;34m19[0m:   @messages = room.messages
+    [1;34m20[0m:   @message = [1;34;4mMessage[0m.new([35mroom_id[0m: room.id)
+    [1;34m21[0m: [32mend[0m
+

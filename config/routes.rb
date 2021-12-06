@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'messages/show'
   devise_for :users
 
   resources :users,only: [:show,:index,:edit,:update,:destroy] do
@@ -24,5 +25,7 @@ Rails.application.routes.draw do
   root 'homes#top'
   get 'home/about' => 'homes#about'
   get 'search' => 'searches#search'
+  resources :messages, only: [:create]
+  get 'message/:id' => 'messages#show', as: 'message'
 
 end
