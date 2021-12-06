@@ -5,6 +5,9 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @book_comment = BookComment.new
+
+    # 閲覧数をカウント
+    impressionist(@book, nil, unique: [:session_hash.to_s])
   end
 
   def index

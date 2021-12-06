@@ -22,4 +22,6 @@ class Book < ApplicationRecord
 	 (0..6).map { |n| created_days_ago(n).count }.reverse
 	end
 
+	is_impressionable counter_cache: true
+
 end
