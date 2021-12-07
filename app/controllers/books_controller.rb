@@ -13,7 +13,14 @@ class BooksController < ApplicationController
   def index
     # @books = Book.all
     @book = Book.new
-    @books = Book.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+    @books = Book.left_joins(:week_favorites).group(:id).order('count(book_id) desc')
+    sort = params[:sort]
+    if sort == "1"
+      @books = Book.all.order(id: "desc")
+    elsif sort == "2"
+      @books = Book.left_joins(:count_favorited).group(:id).order(evaluation: "desc")
+    end
+
   end
 
   def create
