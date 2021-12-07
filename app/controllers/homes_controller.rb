@@ -4,4 +4,8 @@ class HomesController < ApplicationController
 
   def about
   end
+
+  def search
+    @books = Book.where(category: params["category"])
+  end
 end

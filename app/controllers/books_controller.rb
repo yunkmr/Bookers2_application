@@ -13,14 +13,8 @@ class BooksController < ApplicationController
   def index
     # @books = Book.all
     @book = Book.new
-    @books = Book.left_joins(:week_favorites).group(:id).order('count(book_id) desc')
-    sort = params[:sort]
-    if sort == "1"
-      @books = Book.all.order(id: "desc")
-    elsif sort == "2"
-      @books = Book.left_joins(:count_favorited).group(:id).order(evaluation: "desc")
-    end
-
+    # @books = Book.left_joins(:week_favorites).group(:id).order('count(book_id) desc')
+    @books = Book.all.order(params[:sort])
   end
 
   def create
@@ -53,7 +47,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :body, :evaluation)
+    params.require(:book).permit(:title, :body, :evaluation, :category)
     # params.require(:book).permit(:title, :body, :created_at)
   end
 

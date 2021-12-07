@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :books do
     resource :favorites, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy]
+    # get 'search' => 'books#search'
   end
 
   resources :groups do
@@ -24,8 +25,10 @@ Rails.application.routes.draw do
 
   root 'homes#top'
   get 'home/about' => 'homes#about'
+  get 'home/search' => 'homes#search'
   get 'search' => 'searches#search'
   resources :messages, only: [:create]
   get 'message/:id' => 'messages#show', as: 'message'
+  get 'books/search' => 'books#search'
 
 end
