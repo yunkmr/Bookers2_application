@@ -9,6 +9,8 @@
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
       <%= render 'books/index',books: @books %>
+<%
+=begin %>
       <h2>投稿数の前日比・前週比</h2>
       <%= render 'count1'%>
       <h2>7日間分の投稿数</h2>
@@ -39,6 +41,8 @@
             });
           });
         </script>
+<%
+=end %>
         <div class="form-group mt-3">
           <%= form_with url: user_search_path(@user), method: :get do |f| %>
             <%= f.date_field :date %>
